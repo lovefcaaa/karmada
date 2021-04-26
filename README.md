@@ -1,5 +1,7 @@
 # Karmada
 
+![多云容器平台（Multi-Cloud Container Platform，MCP）是华为云基于多年容器云领域实践经验和社区先进的集群联邦技术（Karmada）](https://support.huaweicloud.com/cce_faq/zh-cn_topic_0148569869.html)
+
 ![Karmada-logo](docs/images/Karmada-logo-horizontal-color.png)
 
 
