@@ -1,6 +1,58 @@
 # Karmada
 
-![多云容器平台（Multi-Cloud Container Platform，MCP）是华为云基于多年容器云领域实践经验和社区先进的集群联邦技术（Karmada）](https://support.huaweicloud.com/cce_faq/zh-cn_topic_0148569869.html)
+[多云容器平台（Multi-Cloud Container Platform，MCP）是华为云基于多年容器云领域实践经验和社区先进的集群联邦技术（Karmada）](https://support.huaweicloud.com/cce_faq/zh-cn_topic_0148569869.html)
+
+![Architecture diagram](https://support.huaweicloud.com/productdesc-mcp/zh-cn_image_0228801720.png)
+
+功能介绍
+统一集群管理
+多云容器平台通过集群联邦实现对多个云运营商的集群进行统一管理，支持动态集群接入和全局集群监控仪表盘。通过多云容器平台的多集群统一管理入口可以实现统一部署、统一发布及统一运维。
+
+全局应用管理
+基于多集群与Federation联邦技术，多云容器平台可以实现多个不同区域、不同云的Kubernetes管理，支持统一的全局应用管理，支持基于Kubernetes社区集群联邦标准化接口的跨集群应用的部署、删除、升级等全生命周期管理。
+
+跨集群的弹性伸缩能力
+多云容器平台支持跨集群的应用弹性伸缩策略，用以均衡各集群的应用实例分布，实现全局负载均衡。您无需再担心集群节点的水平扩展，多云容器平台将根据应用的负载情况，轻松灵活的自动扩缩容应用所需的资源。
+
+跨集群的服务发现能力
+多云容器平台支持创建联邦服务，支持跨集群的服务发现机制，能够基于服务就近访问原则实现业务的区域亲和，从而在业务进行多区域部署时，实现访问与服务的同地域优先，降低用户访问时的网络延迟。
+
+标准兼容
+多云容器平台兼容Kubernetes社区最新Federation架构，提供原生Kubernetes API及Karmada API。您可使用熟悉的Kubernetes命令行和API来部署容器应用，无需修改任何服务代码即可支持Kubernetes典型应用场景。
+
+单集群应用多云化
+多云容器平台支持将单集群应用一键式转换为多云应用，将应用实例部署到多云多集群，方便快捷的完成业务多云容灾、多云业务流量分担等多云价值场景。
+
+跨集群应用克隆和迁移能力
+多云容器平台支持将某个集群的应用克隆或者迁移到其他集群，可以使用该能力完成跨云跨集群的应用主动迁移，或者跨云跨region的镜像环境复制等场景应用。
+
+Karmada
+Karmada（Kubernetes Armada）是基于Kubernetes原生API的多集群管理系统。在多云和混合云场景下，Karmada提供可插拔，全自动化管理多集群应用，实现多云集中管理、高可用性、故障恢复和流量调度。
+
+关键特性
+
+基于K8s原生API的跨集群应用管理，用户可以方便快捷地将应用从单集群迁移到多集群。
+中心式操作和管理Kubernetes集群。
+跨集群应用可在多集群上自动扩展，故障转移和负载均衡。
+高级的调度策略：区域，可用区，云提供商，集群亲和性/反亲和性。
+支持创建分发用户自定义（CustomResourceDefinitions）资源。
+框架结构
+
+
+
+ETCD：存储Karmada API对象。
+Karmada Scheduler：提供高级的多集群调度策略。
+Karmada Controller Manager: 包含多个Controller，Controller监听karmada对象并且与成员集群API server进行通信。
+基本概念
+
+资源模板（Resource Template）：Karmada使用K8s原生API定义作为资源模板，便于快速对接K8s生态工具链。
+分发策略（Propagaion Policy）：Karmada提供独立的策略API，用来配置资源分发策略。
+差异化策略（Override Policy）：Karmada提供独立的差异化API，用来配置与集群相关的差异发配置。比如配置不同集群使用不同的镜像。
+Karmada资源分发流程图：
+
+
+
+
 
 ![Karmada-logo](docs/images/Karmada-logo-horizontal-color.png)
 
